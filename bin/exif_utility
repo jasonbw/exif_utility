@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'exif_utility'
+puts ExifUtility.hi(ARGV[0])
