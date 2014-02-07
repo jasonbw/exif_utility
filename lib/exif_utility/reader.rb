@@ -83,7 +83,6 @@ module ExifUtility
         # The individual entries are broken up into parts:
         # first 2 bytes are the Tag number, this shows a kind of data
         tag = read_bytes(2)
-        puts "tag #{tag}"
 
         # for now we're only looking for the DateTime
         if tag == "0132" # or tag == "9003" or tag == "9004" # all tags for DateTime
@@ -100,8 +99,10 @@ module ExifUtility
           read_bytes(offset - @offset) # gobble
 
           # now read the bytes that correspond to DateTime
-          date_time = read_bytes(length - 1).scan(/../).map{|i| i.to_i(16).chr}.join # last byte is 0x00 (NULL)
-          return date_time
+          @alignment = :motorola # for some reason DateTime isn't little endian
+
+          date_time = read_bytes(length).scan(/../).map{|i| i.to_i(16).chr}.join
+          return date_time[0..-2]# last byte is 0x00 (NULL)
         end
 
         read_bytes(10) # gobble
