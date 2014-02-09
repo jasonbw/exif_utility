@@ -14,7 +14,6 @@ module ExifUtility
 end
 
 require 'exif_utility/data'
-# require 'exif_utility/reader'
 require 'exif_utility/parser'
 require 'exif_utility/interpreter'
 require 'date'
