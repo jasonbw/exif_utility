@@ -5,7 +5,7 @@ module ExifUtility
     # TODO: Save data read in for each tag
     # TODO: attr_accessor for all tags
 
-    attr_reader :exif_subIFD_offset
+    attr_reader :exif_offset
 
     attr_reader :date_time
 
@@ -23,467 +23,874 @@ module ExifUtility
       # The last entry of IFD0 contains the Exif Offset, the offset to the Exif SubIDF
 
       case tag_number
+
+      # DEL THIS ONE, it's a dupe
       when "0132"
         @date_time = data
 
+
+      when "0001"
+				@InteropIndex = data
+      when "0002"
+				@InteropVersion = data
+      when "000b"
+				@ProcessingSoftware = data
+      when "00fe"
+				@SubfileType = data
+      when "00ff"
+				@OldSubfileType = data
+      when "0100"
+				@ImageWidth = data
+      when "0101"
+				@ImageHeight = data
+      when "0102"
+				@BitsPerSample = data
+      when "0103"
+				@Compression = data
+      when "0106"
+				@PhotometricInterpretation = data
+      when "0107"
+				@Thresholding = data
+      when "0108"
+				@CellWidth = data
+      when "0109"
+				@CellLength = data
+      when "010a"
+				@FillOrder = data
+      when "010d"
+				@DocumentName = data
+      when "010e"
+				@ImageDescription = data
+      when "010f"
+				@Make = data
+      when "0110"
+				@Model = data
+      when "0111"
+				@StripOffsets = data
+      when "0112"
+				@Orientation = data
+      when "0115"
+				@SamplesPerPixel = data
+      when "0116"
+				@RowsPerStrip = data
+      when "0117"
+				@StripByteCounts = data
+      when "0118"
+				@MinSampleValue = data
+      when "0119"
+				@MaxSampleValue = data
+      when "011a"
+				@XResolution = data
+      when "011b"
+				@YResolution = data
+      when "011c"
+				@PlanarConfiguration = data
+      when "011d"
+				@PageName = data
+      when "011e"
+				@XPosition = data
+      when "011f"
+				@YPosition = data
+      when "0120"
+				@FreeOffsets = data
+      when "0121"
+				@FreeByteCounts = data
+      when "0122"
+				@GrayResponseUnit = data
+      when "0123"
+				@GrayResponseCurve = data
+      when "0124"
+				@T4Options = data
+      when "0125"
+				@T6Options = data
+      when "0128"
+				@ResolutionUnit = data
+      when "0129"
+				@PageNumber = data
+      when "012c"
+				@ColorResponseUnit = data
+      when "012d"
+				@TransferFunction = data
+      when "0131"
+				@Software = data
+      when "0132"
+				@ModifyDate = data
+      when "013b"
+				@Artist = data
+      when "013c"
+				@HostComputer = data
+      when "013d"
+				@Predictor = data
+      when "013e"
+				@WhitePoint = data
+      when "013f"
+				@PrimaryChromaticities = data
+      when "0140"
+				@ColorMap = data
+      when "0141"
+				@HalftoneHints = data
+      when "0142"
+				@TileWidth = data
+      when "0143"
+				@TileLength = data
+      when "0144"
+				@TileOffsets = data
+      when "0145"
+				@TileByteCounts = data
+      when "0146"
+				@BadFaxLines = data
+      when "0147"
+				@CleanFaxData = data
+      when "0148"
+				@ConsecutiveBadFaxLines = data
+      when "014a"
+				@SubIFD = data
+      when "014c"
+				@InkSet = data
+      when "014d"
+				@InkNames = data
+      when "014e"
+				@NumberofInks = data
+      when "0150"
+				@DotRange = data
+      when "0151"
+				@TargetPrinter = data
+      when "0152"
+				@ExtraSamples = data
+      when "0153"
+				@SampleFormat = data
+      when "0154"
+				@SMinSampleValue = data
+      when "0155"
+				@SMaxSampleValue = data
+      when "0156"
+				@TransferRange = data
+      when "0157"
+				@ClipPath = data
+      when "0158"
+				@XClipPathUnits = data
+      when "0159"
+				@YClipPathUnits = data
+      when "015a"
+				@Indexed = data
+      when "015b"
+				@JPEGTables = data
+      when "015f"
+				@OPIProxy = data
+      when "0190"
+				@GlobalParametersIFD = data
+      when "0191"
+				@ProfileType = data
+      when "0192"
+				@FaxProfile = data
+      when "0193"
+				@CodingMethods = data
+      when "0194"
+				@VersionYear = data
+      when "0195"
+				@ModeNumber = data
+      when "01b1"
+				@Decode = data
+      when "01b2"
+				@DefaultImageColor = data
+      when "01b3"
+				@T82Options = data
+      when "01b5"
+				@JPEGTables = data
+      when "0200"
+				@JPEGProc = data
+      when "0201"
+				@ThumbnailOffset = data
+      when "0202"
+				@ThumbnailLength = data
+      when "0203"
+				@JPEGRestartInterval = data
+      when "0205"
+				@JPEGLosslessPredictors = data
+      when "0206"
+				@JPEGPointTransforms = data
+      when "0207"
+				@JPEGQTables = data
+      when "0208"
+				@JPEGDCTables = data
+      when "0209"
+				@JPEGACTables = data
+      when "0211"
+				@YCbCrCoefficients = data
+      when "0212"
+				@YCbCrSubSampling = data
+      when "0213"
+				@YCbCrPositioning = data
+      when "0214"
+				@ReferenceBlackWhite = data
+      when "022f"
+				@StripRowCounts = data
+      when "02bc"
+				@ApplicationNotes = data
+      when "03e7"
+				@USPTOMiscellaneous = data
+      when "1000"
+				@RelatedImageFileFormat = data
+      when "1001"
+				@RelatedImageWidth = data
+      when "1002"
+				@RelatedImageHeight = data
+      when "4746"
+				@Rating = data
+      when "4747"
+				@XP_DIP_XML = data
+      when "4748"
+				@StitchInfo = data
+      when "4749"
+				@RatingPercent = data
+      when "800d"
+				@ImageID = data
+      when "80a3"
+				@WangTag1 = data
+      when "80a4"
+				@WangAnnotation = data
+      when "80a5"
+				@WangTag3 = data
+      when "80a6"
+				@WangTag4 = data
+      when "80e3"
+				@Matteing = data
+      when "80e4"
+				@DataType = data
+      when "80e5"
+				@ImageDepth = data
+      when "80e6"
+				@TileDepth = data
+      when "827d"
+				@Model2 = data
+      when "828d"
+				@CFARepeatPatternDim = data
+      when "828e"
+				@CFAPattern2 = data
+      when "828f"
+				@BatteryLevel = data
+      when "8290"
+				@KodakIFD = data
+      when "8298"
+				@Copyright = data
+      when "829a"
+				@ExposureTime = data
+      when "829d"
+				@FNumber = data
+      when "82a5"
+				@MDFileTag = data
+      when "82a6"
+				@MDScalePixel = data
+      when "82a7"
+				@MDColorTable = data
+      when "82a8"
+				@MDLabName = data
+      when "82a9"
+				@MDSampleInfo = data
+      when "82aa"
+				@MDPrepDate = data
+      when "82ab"
+				@MDPrepTime = data
+      when "82ac"
+				@MDFileUnits = data
+      when "830e"
+				@PixelScale = data
+      when "8335"
+				@AdventScale = data
+      when "8336"
+				@AdventRevision = data
+      when "835c"
+				@UIC1Tag = data
+      when "835d"
+				@UIC2Tag = data
+      when "835e"
+				@UIC3Tag = data
+      when "835f"
+				@UIC4Tag = data
+      when "83bb"
+				@IPTC-NAA = data
+      when "847e"
+				@IntergraphPacketData = data
+      when "847f"
+				@IntergraphFlagRegisters = data
+      when "8480"
+				@IntergraphMatrix = data
+      when "8481"
+				@INGRReserved = data
+      when "8482"
+				@ModelTiePoint = data
+      when "84e0"
+				@Site = data
+      when "84e1"
+				@ColorSequence = data
+      when "84e2"
+				@IT8Header = data
+      when "84e3"
+				@RasterPadding = data
+      when "84e4"
+				@BitsPerRunLength = data
+      when "84e5"
+				@BitsPerExtendedRunLength = data
+      when "84e6"
+				@ColorTable = data
+      when "84e7"
+				@ImageColorIndicator = data
+      when "84e8"
+				@BackgroundColorIndicator = data
+      when "84e9"
+				@ImageColorValue = data
+      when "84ea"
+				@BackgroundColorValue = data
+      when "84eb"
+				@PixelIntensityRange = data
+      when "84ec"
+				@TransparencyIndicator = data
+      when "84ed"
+				@ColorCharacterization = data
+      when "84ee"
+				@HCUsage = data
+      when "84ef"
+				@TrapIndicator = data
+      when "84f0"
+				@CMYKEquivalent = data
+      when "8546"
+				@SEMInfo = data
+      when "8568"
+				@AFCP_IPTC = data
+      when "85b8"
+				@PixelMagicJBIGOptions = data
+      when "85d8"
+				@ModelTransform = data
+      when "8602"
+				@WB_GRGBLevels = data
+      when "8606"
+				@LeafData = data
+      when "8649"
+				@PhotoshopSettings = data
       when "8769"
-        @exif_subIFD_offset = data
+				@exif_offset = data
+      when "8773"
+				@ICC_Profile = data
+      when "877f"
+				@TIFF_FXExtensions = data
+      when "8780"
+				@MultiProfiles = data
+      when "8781"
+				@SharedData = data
+      when "8782"
+				@T88Options = data
+      when "87ac"
+				@ImageLayer = data
+      when "87af"
+				@GeoTiffDirectory = data
+      when "87b0"
+				@GeoTiffDoubleParams = data
+      when "87b1"
+				@GeoTiffAsciiParams = data
+      when "8822"
+				@ExposureProgram = data
+      when "8824"
+				@SpectralSensitivity = data
+      when "8825"
+				@GPSInfo = data
+      when "8827"
+				@ISO = data
+      when "8828"
+				@Opto-ElectricConvFactor = data
+      when "8829"
+				@Interlace = data
+      when "882a"
+				@TimeZoneOffset = data
+      when "882b"
+				@SelfTimerMode = data
+      when "8830"
+				@SensitivityType = data
+      when "8831"
+				@StandardOutputSensitivity = data
+      when "8832"
+				@RecommendedExposureIndex = data
+      when "8833"
+				@ISOSpeed = data
+      when "8834"
+				@ISOSpeedLatitudeyyy = data
+      when "8835"
+				@ISOSpeedLatitudezzz = data
+      when "885c"
+				@FaxRecvParams = data
+      when "885d"
+				@FaxSubAddress = data
+      when "885e"
+				@FaxRecvTime = data
+      when "888a"
+				@LeafSubIFD = data
+      when "9000"
+				@ExifVersion = data
+      when "9003"
+				@DateTimeOriginal = data
+      when "9004"
+				@CreateDate = data
+      when "9101"
+				@ComponentsConfiguration = data
+      when "9102"
+				@CompressedBitsPerPixel = data
+      when "9201"
+				@ShutterSpeedValue = data
+      when "9202"
+				@ApertureValue = data
+      when "9203"
+				@BrightnessValue = data
+      when "9204"
+				@ExposureCompensation = data
+      when "9205"
+				@MaxApertureValue = data
+      when "9206"
+				@SubjectDistance = data
+      when "9207"
+				@MeteringMode = data
+      when "9208"
+				@LightSource = data
+      when "9209"
+				@Flash = data
+      when "920a"
+				@FocalLength = data
+      when "920b"
+				@FlashEnergy = data
+      when "920c"
+				@SpatialFrequencyResponse = data
+      when "920d"
+				@Noise = data
+      when "920e"
+				@FocalPlaneXResolution = data
+      when "920f"
+				@FocalPlaneYResolution = data
+      when "9210"
+				@FocalPlaneResolutionUnit = data
+      when "9211"
+				@ImageNumber = data
+      when "9212"
+				@SecurityClassification = data
+      when "9213"
+				@ImageHistory = data
+      when "9214"
+				@SubjectArea = data
+      when "9215"
+				@ExposureIndex = data
+      when "9216"
+				@TIFF-EPStandardID = data
+      when "9217"
+				@SensingMethod = data
+      when "923a"
+				@CIP3DataFile = data
+      when "923b"
+				@CIP3Sheet = data
+      when "923c"
+				@CIP3Side = data
+      when "923f"
+				@StoNits = data
+      when "927c"
+				@MakerNoteVENDOR = data # VENDOR can be Apple, Nikon, Canon, etc
+      when "9286"
+				@UserComment = data
+      when "9290"
+				@SubSecTime = data
+      when "9291"
+				@SubSecTimeOriginal = data
+      when "9292"
+				@SubSecTimeDigitized = data
+      when "932f"
+				@MSDocumentText = data
+      when "9330"
+				@MSPropertySetStorage = data
+      when "9331"
+				@MSDocumentTextPosition = data
+      when "935c"
+				@ImageSourceData = data
+      when "9c9b"
+				@XPTitle = data
+      when "9c9c"
+				@XPComment = data
+      when "9c9d"
+				@XPAuthor = data
+      when "9c9e"
+				@XPKeywords = data
+      when "9c9f"
+				@XPSubject = data
+      when "A000"
+				@FlashpixVersion = data
+      when "A001"
+				@ColorSpace = data
+      when "A002"
+				@ExifImageWidth = data
+      when "A003"
+				@ExifImageHeight = data
+      when "A004"
+				@RelatedSoundFile = data
+      when "A005"
+				@InteropOffset = data
+      when "A20b"
+				@FlashEnergy = data
+      when "A20c"
+				@SpatialFrequencyResponse = data
+      when "A20d"
+				@Noise = data
+      when "A20e"
+				@FocalPlaneXResolution = data
+      when "A20f"
+				@FocalPlaneYResolution = data
+      when "A210"
+				@FocalPlaneResolutionUnit = data
+      when "A211"
+				@ImageNumber = data
+      when "A212"
+				@SecurityClassification = data
+      when "A213"
+				@ImageHistory = data
+      when "A214"
+				@SubjectLocation = data
+      when "A215"
+				@ExposureIndex = data
+      when "A216"
+				@TIFF-EPStandardID = data
+      when "A217"
+				@SensingMethod = data
+      when "A300"
+				@FileSource = data
+      when "A301"
+				@SceneType = data
+      when "A302"
+				@CFAPattern = data
+      when "A401"
+				@CustomRendered = data
+      when "A402"
+				@ExposureMode = data
+      when "A403"
+				@WhiteBalance = data
+      when "A404"
+				@DigitalZoomRatio = data
+      when "A405"
+				@FocalLengthIn35mmFormat = data
+      when "A406"
+				@SceneCaptureType = data
+      when "A407"
+				@GainControl = data
+      when "A408"
+				@Contrast = data
+      when "A409"
+				@Saturation = data
+      when "A40a"
+				@Sharpness = data
+      when "A40b"
+				@DeviceSettingDescription = data
+      when "A40c"
+				@SubjectDistanceRange = data
+      when "A420"
+				@ImageUniqueID = data
+      when "A430"
+				@OwnerName = data
+      when "A431"
+				@SerialNumber = data
+      when "A432"
+				@LensInfo = data
+      when "A433"
+				@LensMake = data
+      when "A434"
+				@LensModel = data
+      when "A435"
+				@LensSerialNumber = data
+      when "A480"
+				@GDALMetadata = data
+      when "A481"
+				@GDALNoData = data
+      when "A500"
+				@Gamma = data
+      when "Afc0"
+				@ExpandSoftware = data
+      when "Afc1"
+				@ExpandLens = data
+      when "Afc2"
+				@ExpandFilm = data
+      when "Afc3"
+				@ExpandFilterLens = data
+      when "Afc4"
+				@ExpandScanner = data
+      when "Afc5"
+				@ExpandFlashLamp = data
+      when "Bc01"
+				@PixelFormat = data
+      when "Bc02"
+				@Transformation = data
+      when "Bc03"
+				@Uncompressed = data
+      when "Bc04"
+				@ImageType = data
+      when "Bc80"
+				@ImageWidth = data
+      when "Bc81"
+				@ImageHeight = data
+      when "Bc82"
+				@WidthResolution = data
+      when "Bc83"
+				@HeightResolution = data
+      when "Bcc0"
+				@ImageOffset = data
+      when "Bcc1"
+				@ImageByteCount = data
+      when "Bcc2"
+				@AlphaOffset = data
+      when "Bcc3"
+				@AlphaByteCount = data
+      when "Bcc4"
+				@ImageDataDiscard = data
+      when "Bcc5"
+				@AlphaDataDiscard = data
+      when "C427"
+				@OceScanjobDesc = data
+      when "C428"
+				@OceApplicationSelector = data
+      when "C429"
+				@OceIDNumber = data
+      when "C42a"
+				@OceImageLogic = data
+      when "C44f"
+				@Annotations = data
+      when "C4a5"
+				@PrintIM = data
+      when "C573"
+				@OriginalFileName = data
+      when "C580"
+				@USPTOOriginalContentType = data
+      when "C612"
+				@DNGVersion = data
+      when "C613"
+				@DNGBackwardVersion = data
+      when "C614"
+				@UniqueCameraModel = data
+      when "C615"
+				@LocalizedCameraModel = data
+      when "C616"
+				@CFAPlaneColor = data
+      when "C617"
+				@CFALayout = data
+      when "C618"
+				@LinearizationTable = data
+      when "C619"
+				@BlackLevelRepeatDim = data
+      when "C61a"
+				@BlackLevel = data
+      when "C61b"
+				@BlackLevelDeltaH = data
+      when "C61c"
+				@BlackLevelDeltaV = data
+      when "C61d"
+				@WhiteLevel = data
+      when "C61e"
+				@DefaultScale = data
+      when "C61f"
+				@DefaultCropOrigin = data
+      when "C620"
+				@DefaultCropSize = data
+      when "C621"
+				@ColorMatrix1 = data
+      when "C622"
+				@ColorMatrix2 = data
+      when "C623"
+				@CameraCalibration1 = data
+      when "C624"
+				@CameraCalibration2 = data
+      when "C625"
+				@ReductionMatrix1 = data
+      when "C626"
+				@ReductionMatrix2 = data
+      when "C627"
+				@AnalogBalance = data
+      when "C628"
+				@AsShotNeutral = data
+      when "C629"
+				@AsShotWhiteXY = data
+      when "C62a"
+				@BaselineExposure = data
+      when "C62b"
+				@BaselineNoise = data
+      when "C62c"
+				@BaselineSharpness = data
+      when "C62d"
+				@BayerGreenSplit = data
+      when "C62e"
+				@LinearResponseLimit = data
+      when "C62f"
+				@CameraSerialNumber = data
+      when "C630"
+				@DNGLensInfo = data
+      when "C631"
+				@ChromaBlurRadius = data
+      when "C632"
+				@AntiAliasStrength = data
+      when "C633"
+				@ShadowScale = data
+      when "C634"
+				@SR2Private = data
+      when "C635"
+				@MakerNoteSafety = data
+      when "C640"
+				@RawImageSegmentation = data
+      when "C65a"
+				@CalibrationIlluminant1 = data
+      when "C65b"
+				@CalibrationIlluminant2 = data
+      when "C65c"
+				@BestQualityScale = data
+      when "C65d"
+				@RawDataUniqueID = data
+      when "C660"
+				@AliasLayerMetadata = data
+      when "C68b"
+				@OriginalRawFileName = data
+      when "C68c"
+				@OriginalRawFileData = data
+      when "C68d"
+				@ActiveArea = data
+      when "C68e"
+				@MaskedAreas = data
+      when "C68f"
+				@AsShotICCProfile = data
+      when "C690"
+				@AsShotPreProfileMatrix = data
+      when "C691"
+				@CurrentICCProfile = data
+      when "C692"
+				@CurrentPreProfileMatrix = data
+      when "C6bf"
+				@ColorimetricReference = data
+      when "C6d2"
+				@PanasonicTitle = data
+      when "C6d3"
+				@PanasonicTitle2 = data
+      when "C6f3"
+				@CameraCalibrationSig = data
+      when "C6f4"
+				@ProfileCalibrationSig = data
+      when "C6f5"
+				@ProfileIFD = data
+      when "C6f6"
+				@AsShotProfileName = data
+      when "C6f7"
+				@NoiseReductionApplied = data
+      when "C6f8"
+				@ProfileName = data
+      when "C6f9"
+				@ProfileHueSatMapDims = data
+      when "C6fa"
+				@ProfileHueSatMapData1 = data
+      when "C6fb"
+				@ProfileHueSatMapData2 = data
+      when "C6fc"
+				@ProfileToneCurve = data
+      when "C6fd"
+				@ProfileEmbedPolicy = data
+      when "C6fe"
+				@ProfileCopyright = data
+      when "C714"
+				@ForwardMatrix1 = data
+      when "C715"
+				@ForwardMatrix2 = data
+      when "C716"
+				@PreviewApplicationName = data
+      when "C717"
+				@PreviewApplicationVersion = data
+      when "C718"
+				@PreviewSettingsName = data
+      when "C719"
+				@PreviewSettingsDigest = data
+      when "C71a"
+				@PreviewColorSpace = data
+      when "C71b"
+				@PreviewDateTime = data
+      when "C71c"
+				@RawImageDigest = data
+      when "C71d"
+				@OriginalRawFileDigest = data
+      when "C71e"
+				@SubTileBlockSize = data
+      when "C71f"
+				@RowInterleaveFactor = data
+      when "C725"
+				@ProfileLookTableDims = data
+      when "C726"
+				@ProfileLookTableData = data
+      when "C740"
+				@OpcodeList1 = data
+      when "C741"
+				@OpcodeList2 = data
+      when "C74e"
+				@OpcodeList3 = data
+      when "C761"
+				@NoiseProfile = data
+      when "C763"
+				@TimeCodes = data
+      when "C764"
+				@FrameRate = data
+      when "C772"
+				@TStop = data
+      when "C789"
+				@ReelName = data
+      when "C791"
+				@OriginalDefaultFinalSize = data
+      when "C792"
+				@OriginalBestQualitySize = data
+      when "C793"
+				@OriginalDefaultCropSize = data
+      when "C7a1"
+				@CameraLabel = data
+      when "C7a3"
+				@ProfileHueSatMapEncoding = data
+      when "C7a4"
+				@ProfileLookTableEncoding = data
+      when "C7a5"
+				@BaselineExposureOffset = data
+      when "C7a6"
+				@DefaultBlackRender = data
+      when "C7a7"
+				@NewRawImageDigest = data
+      when "C7a8"
+				@RawToPreviewGain = data
+      when "C7b5"
+				@DefaultUserCrop = data
+      when "Ea1c"
+				@Padding = data
+      when "Ea1d"
+				@OffsetSchema = data
+      when "Fde8"
+				@OwnerName = data
+      when "Fde9"
+				@SerialNumber = data
+      when "Fdea"
+				@Lens = data
+      when "Fe00"
+				@KDC_IFD = data
+      when "Fe4c"
+				@RawFile = data
+      when "Fe4d"
+				@Converter = data
+      when "Fe4e"
+				@WhiteBalance = data
+      when "Fe51"
+				@Exposure = data
+      when "Fe52"
+				@Shadows = data
+      when "Fe53"
+				@Brightness = data
+      when "Fe54"
+				@Contrast = data
+      when "Fe55"
+				@Saturation = data
+      when "Fe56"
+				@Sharpness = data
+      when "Fe57"
+				@Smoothness = data
+      when "FE58"
+        @MoireFilter = data
       end
-
-    end
-
-    # total data byte length = (bytes_per_component value) * (number of components)
-    # If the total data length is less than 4bytes, the value of that Tag is right there.
-    # If the total size is over 4bytes, the value of that Tag contains the offset to data stored address.
-    # bytes_per_component = {
-    #   unsigned_byte: 1,
-    #   string: 1,
-    #   int16u: 2, # unsigned short
-    #   int32u: 4, # unsigned long
-    #   rational64u: 8, # unsigned rational, "rational" means a fractional value, it contains 2 signed/unsigned long integer values: the first represents the numerator, the second, the denominator.
-    #   signed_byte: 1,
-    #   undefined: 1,
-    #   int16s: 2, # signed short
-    #   int32s: 4, # signed long
-    #   rational64s: 8, # signed rational
-    #   float32: 4, # float
-    #   double64: 8 # double
-    # }
-
-    # Exif Tags; 2.3 specification
-    # http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html
-    # tags = {
-    #   0x0001 => { name: "InteropIndex", format: : },
-    #   0x0002 => { name: "InteropVersion", format: : },
-    #   0x000b => { name: "ProcessingSoftware", format: : },
-    #   0x00fe => { name: "SubfileType", format: : },
-    #   0x00ff => { name: "OldSubfileType", format: : },
-    #   0x0100 => { name: "ImageWidth", format: : },
-    #   0x0101 => { name: "ImageHeight", format: : },
-    #   0x0102 => { name: "BitsPerSample", format: : },
-    #   0x0103 => { name: "Compression", format: : },
-    #   0x0106 => { name: "PhotometricInterpretation", format: : },
-    #   0x0107 => { name: "Thresholding", format: : },
-    #   0x0108 => { name: "CellWidth", format: : },
-    #   0x0109 => { name: "CellLength", format: : },
-    #   0x010a => { name: "FillOrder", format: : },
-    #   0x010d => { name: "DocumentName", format: : },
-    #   0x010e => { name: "ImageDescription", format: : },
-    #   0x010f => { name: "Make", format: : },
-    #   0x0110 => { name: "Model", format: : },
-    #   0x0111 => { name: "StripOffsets", format: : },
-    #   0x0112 => { name: "Orientation", format: : },
-    #   0x0115 => { name: "SamplesPerPixel", format: : },
-    #   0x0116 => { name: "RowsPerStrip", format: : },
-    #   0x0117 => { name: "StripByteCounts", format: : },
-    #   0x0118 => { name: "MinSampleValue", format: : },
-    #   0x0119 => { name: "MaxSampleValue", format: : },
-    #   0x011a => { name: "XResolution", format: : },
-    #   0x011b => { name: "YResolution", format: : },
-    #   0x011c => { name: "PlanarConfiguration", format: : },
-    #   0x011d => { name: "PageName", format: : },
-    #   0x011e => { name: "XPosition", format: : },
-    #   0x011f => { name: "YPosition", format: : },
-    #   0x0120 => { name: "FreeOffsets", format: : },
-    #   0x0121 => { name: "FreeByteCounts", format: : },
-    #   0x0122 => { name: "GrayResponseUnit", format: : },
-    #   0x0123 => { name: "GrayResponseCurve", format: : },
-    #   0x0124 => { name: "T4Options", format: : },
-    #   0x0125 => { name: "T6Options", format: : },
-    #   0x0128 => { name: "ResolutionUnit", format: : },
-    #   0x0129 => { name: "PageNumber", format: : },
-    #   0x012c => { name: "ColorResponseUnit", format: : },
-    #   0x012d => { name: "TransferFunction", format: : },
-    #   0x0131 => { name: "Software", format: : },
-    #   0x0132 => { name: "ModifyDate", format: : },
-    #   0x013b => { name: "Artist", format: : },
-    #   0x013c => { name: "HostComputer", format: : },
-    #   0x013d => { name: "Predictor", format: : },
-    #   0x013e => { name: "WhitePoint", format: : },
-    #   0x013f => { name: "PrimaryChromaticities", format: : },
-    #   0x0140 => { name: "ColorMap", format: : },
-    #   0x0141 => { name: "HalftoneHints", format: : },
-    #   0x0142 => { name: "TileWidth", format: : },
-    #   0x0143 => { name: "TileLength", format: : },
-    #   0x0144 => { name: "TileOffsets", format: : },
-    #   0x0145 => { name: "TileByteCounts", format: : },
-    #   0x0146 => { name: "BadFaxLines", format: : },
-    #   0x0147 => { name: "CleanFaxData", format: : },
-    #   0x0148 => { name: "ConsecutiveBadFaxLines", format: : },
-    #   0x014a => { name: "SubIFD", format: : },
-    #   0x014c => { name: "InkSet", format: : },
-    #   0x014d => { name: "InkNames", format: : },
-    #   0x014e => { name: "NumberofInks", format: : },
-    #   0x0150 => { name: "DotRange", format: : },
-    #   0x0151 => { name: "TargetPrinter", format: : },
-    #   0x0152 => { name: "ExtraSamples", format: : },
-    #   0x0153 => { name: "SampleFormat", format: : },
-    #   0x0154 => { name: "SMinSampleValue", format: : },
-    #   0x0155 => { name: "SMaxSampleValue", format: : },
-    #   0x0156 => { name: "TransferRange", format: : },
-    #   0x0157 => { name: "ClipPath", format: : },
-    #   0x0158 => { name: "XClipPathUnits", format: : },
-    #   0x0159 => { name: "YClipPathUnits", format: : },
-    #   0x015a => { name: "Indexed", format: : },
-    #   0x015b => { name: "JPEGTables", format: : },
-    #   0x015f => { name: "OPIProxy", format: : },
-    #   0x0190 => { name: "GlobalParametersIFD", format: : },
-    #   0x0191 => { name: "ProfileType", format: : },
-    #   0x0192 => { name: "FaxProfile", format: : },
-    #   0x0193 => { name: "CodingMethods", format: : },
-    #   0x0194 => { name: "VersionYear", format: : },
-    #   0x0195 => { name: "ModeNumber", format: : },
-    #   0x01b1 => { name: "Decode", format: : },
-    #   0x01b2 => { name: "DefaultImageColor", format: : },
-    #   0x01b3 => { name: "T82Options", format: : },
-    #   0x01b5 => { name: "JPEGTables", format: : },
-    #   0x0200 => { name: "JPEGProc", format: : },
-    #   0x0201 => { name: "ThumbnailOffset", format: : },
-    #   0x0202 => { name: "ThumbnailLength", format: : },
-    #   0x0203 => { name: "JPEGRestartInterval", format: : },
-    #   0x0205 => { name: "JPEGLosslessPredictors", format: : },
-    #   0x0206 => { name: "JPEGPointTransforms", format: : },
-    #   0x0207 => { name: "JPEGQTables", format: : },
-    #   0x0208 => { name: "JPEGDCTables", format: : },
-    #   0x0209 => { name: "JPEGACTables", format: : },
-    #   0x0211 => { name: "YCbCrCoefficients", format: : },
-    #   0x0212 => { name: "YCbCrSubSampling", format: : },
-    #   0x0213 => { name: "YCbCrPositioning", format: : },
-    #   0x0214 => { name: "ReferenceBlackWhite", format: : },
-    #   0x022f => { name: "StripRowCounts", format: : },
-    #   0x02bc => { name: "ApplicationNotes", format: : },
-    #   0x03e7 => { name: "USPTOMiscellaneous", format: : },
-    #   0x1000 => { name: "RelatedImageFileFormat", format: : },
-    #   0x1001 => { name: "RelatedImageWidth", format: : },
-    #   0x1002 => { name: "RelatedImageHeight", format: : },
-    #   0x4746 => { name: "Rating", format: : },
-    #   0x4747 => { name: "XP_DIP_XML", format: : },
-    #   0x4748 => { name: "StitchInfo", format: : },
-    #   0x4749 => { name: "RatingPercent", format: : },
-    #   0x800d => { name: "ImageID", format: : },
-    #   0x80a3 => { name: "WangTag1", format: : },
-    #   0x80a4 => { name: "WangAnnotation", format: : },
-    #   0x80a5 => { name: "WangTag3", format: : },
-    #   0x80a6 => { name: "WangTag4", format: : },
-    #   0x80e3 => { name: "Matteing", format: : },
-    #   0x80e4 => { name: "DataType", format: : },
-    #   0x80e5 => { name: "ImageDepth", format: : },
-    #   0x80e6 => { name: "TileDepth", format: : },
-    #   0x827d => { name: "Model2", format: : },
-    #   0x828d => { name: "CFARepeatPatternDim", format: : },
-    #   0x828e => { name: "CFAPattern2", format: : },
-    #   0x828f => { name: "BatteryLevel", format: : },
-    #   0x8290 => { name: "KodakIFD", format: : },
-    #   0x8298 => { name: "Copyright", format: : },
-    #   0x829a => { name: "ExposureTime", format: : },
-    #   0x829d => { name: "FNumber", format: : },
-    #   0x82a5 => { name: "MDFileTag", format: : },
-    #   0x82a6 => { name: "MDScalePixel", format: : },
-    #   0x82a7 => { name: "MDColorTable", format: : },
-    #   0x82a8 => { name: "MDLabName", format: : },
-    #   0x82a9 => { name: "MDSampleInfo", format: : },
-    #   0x82aa => { name: "MDPrepDate", format: : },
-    #   0x82ab => { name: "MDPrepTime", format: : },
-    #   0x82ac => { name: "MDFileUnits", format: : },
-    #   0x830e => { name: "PixelScale", format: : },
-    #   0x8335 => { name: "AdventScale", format: : },
-    #   0x8336 => { name: "AdventRevision", format: : },
-    #   0x835c => { name: "UIC1Tag", format: : },
-    #   0x835d => { name: "UIC2Tag", format: : },
-    #   0x835e => { name: "UIC3Tag", format: : },
-    #   0x835f => { name: "UIC4Tag", format: : },
-    #   0x83bb => { name: "IPTC-NAA", format: : },
-    #   0x847e => { name: "IntergraphPacketData", format: : },
-    #   0x847f => { name: "IntergraphFlagRegisters", format: : },
-    #   0x8480 => { name: "IntergraphMatrix", format: : },
-    #   0x8481 => { name: "INGRReserved", format: : },
-    #   0x8482 => { name: "ModelTiePoint", format: : },
-    #   0x84e0 => { name: "Site", format: : },
-    #   0x84e1 => { name: "ColorSequence", format: : },
-    #   0x84e2 => { name: "IT8Header", format: : },
-    #   0x84e3 => { name: "RasterPadding", format: : },
-    #   0x84e4 => { name: "BitsPerRunLength", format: : },
-    #   0x84e5 => { name: "BitsPerExtendedRunLength", format: : },
-    #   0x84e6 => { name: "ColorTable", format: : },
-    #   0x84e7 => { name: "ImageColorIndicator", format: : },
-    #   0x84e8 => { name: "BackgroundColorIndicator", format: : },
-    #   0x84e9 => { name: "ImageColorValue", format: : },
-    #   0x84ea => { name: "BackgroundColorValue", format: : },
-    #   0x84eb => { name: "PixelIntensityRange", format: : },
-    #   0x84ec => { name: "TransparencyIndicator", format: : },
-    #   0x84ed => { name: "ColorCharacterization", format: : },
-    #   0x84ee => { name: "HCUsage", format: : },
-    #   0x84ef => { name: "TrapIndicator", format: : },
-    #   0x84f0 => { name: "CMYKEquivalent", format: : },
-    #   0x8546 => { name: "SEMInfo", format: : },
-    #   0x8568 => { name: "AFCP_IPTC", format: : },
-    #   0x85b8 => { name: "PixelMagicJBIGOptions", format: : },
-    #   0x85d8 => { name: "ModelTransform", format: : },
-    #   0x8602 => { name: "WB_GRGBLevels", format: : },
-    #   0x8606 => { name: "LeafData", format: : },
-    #   0x8649 => { name: "PhotoshopSettings", format: : },
-    #   0x8769 => { name: "ExifOffset", format: : },
-    #   0x8773 => { name: "ICC_Profile", format: : },
-    #   0x877f => { name: "TIFF_FXExtensions", format: : },
-    #   0x8780 => { name: "MultiProfiles", format: : },
-    #   0x8781 => { name: "SharedData", format: : },
-    #   0x8782 => { name: "T88Options", format: : },
-    #   0x87ac => { name: "ImageLayer", format: : },
-    #   0x87af => { name: "GeoTiffDirectory", format: : },
-    #   0x87b0 => { name: "GeoTiffDoubleParams", format: : },
-    #   0x87b1 => { name: "GeoTiffAsciiParams", format: : },
-    #   0x8822 => { name: "ExposureProgram", format: : },
-    #   0x8824 => { name: "SpectralSensitivity", format: : },
-    #   0x8825 => { name: "GPSInfo", format: : },
-    #   0x8827 => { name: "ISO", format: : },
-    #   0x8828 => { name: "Opto-ElectricConvFactor", format: : },
-    #   0x8829 => { name: "Interlace", format: : },
-    #   0x882a => { name: "TimeZoneOffset", format: : },
-    #   0x882b => { name: "SelfTimerMode", format: : },
-    #   0x8830 => { name: "SensitivityType", format: : },
-    #   0x8831 => { name: "StandardOutputSensitivity", format: : },
-    #   0x8832 => { name: "RecommendedExposureIndex", format: : },
-    #   0x8833 => { name: "ISOSpeed", format: : },
-    #   0x8834 => { name: "ISOSpeedLatitudeyyy", format: : },
-    #   0x8835 => { name: "ISOSpeedLatitudezzz", format: : },
-    #   0x885c => { name: "FaxRecvParams", format: : },
-    #   0x885d => { name: "FaxSubAddress", format: : },
-    #   0x885e => { name: "FaxRecvTime", format: : },
-    #   0x888a => { name: "LeafSubIFD", format: : },
-    #   0x9000 => { name: "ExifVersion", format: : },
-    #   0x9003 => { name: "DateTimeOriginal", format: : },
-    #   0x9004 => { name: "CreateDate", format: : },
-    #   0x9101 => { name: "ComponentsConfiguration", format: : },
-    #   0x9102 => { name: "CompressedBitsPerPixel", format: : },
-    #   0x9201 => { name: "ShutterSpeedValue", format: : },
-    #   0x9202 => { name: "ApertureValue", format: : },
-    #   0x9203 => { name: "BrightnessValue", format: : },
-    #   0x9204 => { name: "ExposureCompensation", format: : },
-    #   0x9205 => { name: "MaxApertureValue", format: : },
-    #   0x9206 => { name: "SubjectDistance", format: : },
-    #   0x9207 => { name: "MeteringMode", format: : },
-    #   0x9208 => { name: "LightSource", format: : },
-    #   0x9209 => { name: "Flash", format: : },
-    #   0x920a => { name: "FocalLength", format: : },
-    #   0x920b => { name: "FlashEnergy", format: : },
-    #   0x920c => { name: "SpatialFrequencyResponse", format: : },
-    #   0x920d => { name: "Noise", format: : },
-    #   0x920e => { name: "FocalPlaneXResolution", format: : },
-    #   0x920f => { name: "FocalPlaneYResolution", format: : },
-    #   0x9210 => { name: "FocalPlaneResolutionUnit", format: : },
-    #   0x9211 => { name: "ImageNumber", format: : },
-    #   0x9212 => { name: "SecurityClassification", format: : },
-    #   0x9213 => { name: "ImageHistory", format: : },
-    #   0x9214 => { name: "SubjectArea", format: : },
-    #   0x9215 => { name: "ExposureIndex", format: : },
-    #   0x9216 => { name: "TIFF-EPStandardID", format: : },
-    #   0x9217 => { name: "SensingMethod", format: : },
-    #   0x923a => { name: "CIP3DataFile", format: : },
-    #   0x923b => { name: "CIP3Sheet", format: : },
-    #   0x923c => { name: "CIP3Side", format: : },
-    #   0x923f => { name: "StoNits", format: : },
-    #   0x927c => { name: "MakerNote[VENDOR]", format: : }, # VENDOR can be Apple, Nikon, Canon, etc
-    #   0x9286 => { name: "UserComment", format: : },
-    #   0x9290 => { name: "SubSecTime", format: : },
-    #   0x9291 => { name: "SubSecTimeOriginal", format: : },
-    #   0x9292 => { name: "SubSecTimeDigitized", format: : },
-    #   0x932f => { name: "MSDocumentText", format: : },
-    #   0x9330 => { name: "MSPropertySetStorage", format: : },
-    #   0x9331 => { name: "MSDocumentTextPosition", format: : },
-    #   0x935c => { name: "ImageSourceData", format: : },
-    #   0x9c9b => { name: "XPTitle", format: : },
-    #   0x9c9c => { name: "XPComment", format: : },
-    #   0x9c9d => { name: "XPAuthor", format: : },
-    #   0x9c9e => { name: "XPKeywords", format: : },
-    #   0x9c9f => { name: "XPSubject", format: : },
-    #   0xa000 => { name: "FlashpixVersion", format: : },
-    #   0xa001 => { name: "ColorSpace", format: : },
-    #   0xa002 => { name: "ExifImageWidth", format: : },
-    #   0xa003 => { name: "ExifImageHeight", format: : },
-    #   0xa004 => { name: "RelatedSoundFile", format: : },
-    #   0xa005 => { name: "InteropOffset", format: : },
-    #   0xa20b => { name: "FlashEnergy", format: : },
-    #   0xa20c => { name: "SpatialFrequencyResponse", format: : },
-    #   0xa20d => { name: "Noise", format: : },
-    #   0xa20e => { name: "FocalPlaneXResolution", format: : },
-    #   0xa20f => { name: "FocalPlaneYResolution", format: : },
-    #   0xa210 => { name: "FocalPlaneResolutionUnit", format: : },
-    #   0xa211 => { name: "ImageNumber", format: : },
-    #   0xa212 => { name: "SecurityClassification", format: : },
-    #   0xa213 => { name: "ImageHistory", format: : },
-    #   0xa214 => { name: "SubjectLocation", format: : },
-    #   0xa215 => { name: "ExposureIndex", format: : },
-    #   0xa216 => { name: "TIFF-EPStandardID", format: : },
-    #   0xa217 => { name: "SensingMethod", format: : },
-    #   0xa300 => { name: "FileSource", format: : },
-    #   0xa301 => { name: "SceneType", format: : },
-    #   0xa302 => { name: "CFAPattern", format: : },
-    #   0xa401 => { name: "CustomRendered", format: : },
-    #   0xa402 => { name: "ExposureMode", format: : },
-    #   0xa403 => { name: "WhiteBalance", format: : },
-    #   0xa404 => { name: "DigitalZoomRatio", format: : },
-    #   0xa405 => { name: "FocalLengthIn35mmFormat", format: : },
-    #   0xa406 => { name: "SceneCaptureType", format: : },
-    #   0xa407 => { name: "GainControl", format: : },
-    #   0xa408 => { name: "Contrast", format: : },
-    #   0xa409 => { name: "Saturation", format: : },
-    #   0xa40a => { name: "Sharpness", format: : },
-    #   0xa40b => { name: "DeviceSettingDescription", format: : },
-    #   0xa40c => { name: "SubjectDistanceRange", format: : },
-    #   0xa420 => { name: "ImageUniqueID", format: : },
-    #   0xa430 => { name: "OwnerName", format: : },
-    #   0xa431 => { name: "SerialNumber", format: : },
-    #   0xa432 => { name: "LensInfo", format: : },
-    #   0xa433 => { name: "LensMake", format: : },
-    #   0xa434 => { name: "LensModel", format: : },
-    #   0xa435 => { name: "LensSerialNumber", format: : },
-    #   0xa480 => { name: "GDALMetadata", format: : },
-    #   0xa481 => { name: "GDALNoData", format: : },
-    #   0xa500 => { name: "Gamma", format: : },
-    #   0xafc0 => { name: "ExpandSoftware", format: : },
-    #   0xafc1 => { name: "ExpandLens", format: : },
-    #   0xafc2 => { name: "ExpandFilm", format: : },
-    #   0xafc3 => { name: "ExpandFilterLens", format: : },
-    #   0xafc4 => { name: "ExpandScanner", format: : },
-    #   0xafc5 => { name: "ExpandFlashLamp", format: : },
-    #   0xbc01 => { name: "PixelFormat", format: : },
-    #   0xbc02 => { name: "Transformation", format: : },
-    #   0xbc03 => { name: "Uncompressed", format: : },
-    #   0xbc04 => { name: "ImageType", format: : },
-    #   0xbc80 => { name: "ImageWidth", format: : },
-    #   0xbc81 => { name: "ImageHeight", format: : },
-    #   0xbc82 => { name: "WidthResolution", format: : },
-    #   0xbc83 => { name: "HeightResolution", format: : },
-    #   0xbcc0 => { name: "ImageOffset", format: : },
-    #   0xbcc1 => { name: "ImageByteCount", format: : },
-    #   0xbcc2 => { name: "AlphaOffset", format: : },
-    #   0xbcc3 => { name: "AlphaByteCount", format: : },
-    #   0xbcc4 => { name: "ImageDataDiscard", format: : },
-    #   0xbcc5 => { name: "AlphaDataDiscard", format: : },
-    #   0xc427 => { name: "OceScanjobDesc", format: : },
-    #   0xc428 => { name: "OceApplicationSelector", format: : },
-    #   0xc429 => { name: "OceIDNumber", format: : },
-    #   0xc42a => { name: "OceImageLogic", format: : },
-    #   0xc44f => { name: "Annotations", format: : },
-    #   0xc4a5 => { name: "PrintIM", format: : },
-    #   0xc573 => { name: "OriginalFileName", format: : },
-    #   0xc580 => { name: "USPTOOriginalContentType", format: : },
-    #   0xc612 => { name: "DNGVersion", format: : },
-    #   0xc613 => { name: "DNGBackwardVersion", format: : },
-    #   0xc614 => { name: "UniqueCameraModel", format: : },
-    #   0xc615 => { name: "LocalizedCameraModel", format: : },
-    #   0xc616 => { name: "CFAPlaneColor", format: : },
-    #   0xc617 => { name: "CFALayout", format: : },
-    #   0xc618 => { name: "LinearizationTable", format: : },
-    #   0xc619 => { name: "BlackLevelRepeatDim", format: : },
-    #   0xc61a => { name: "BlackLevel", format: : },
-    #   0xc61b => { name: "BlackLevelDeltaH", format: : },
-    #   0xc61c => { name: "BlackLevelDeltaV", format: : },
-    #   0xc61d => { name: "WhiteLevel", format: : },
-    #   0xc61e => { name: "DefaultScale", format: : },
-    #   0xc61f => { name: "DefaultCropOrigin", format: : },
-    #   0xc620 => { name: "DefaultCropSize", format: : },
-    #   0xc621 => { name: "ColorMatrix1", format: : },
-    #   0xc622 => { name: "ColorMatrix2", format: : },
-    #   0xc623 => { name: "CameraCalibration1", format: : },
-    #   0xc624 => { name: "CameraCalibration2", format: : },
-    #   0xc625 => { name: "ReductionMatrix1", format: : },
-    #   0xc626 => { name: "ReductionMatrix2", format: : },
-    #   0xc627 => { name: "AnalogBalance", format: : },
-    #   0xc628 => { name: "AsShotNeutral", format: : },
-    #   0xc629 => { name: "AsShotWhiteXY", format: : },
-    #   0xc62a => { name: "BaselineExposure", format: : },
-    #   0xc62b => { name: "BaselineNoise", format: : },
-    #   0xc62c => { name: "BaselineSharpness", format: : },
-    #   0xc62d => { name: "BayerGreenSplit", format: : },
-    #   0xc62e => { name: "LinearResponseLimit", format: : },
-    #   0xc62f => { name: "CameraSerialNumber", format: : },
-    #   0xc630 => { name: "DNGLensInfo", format: : },
-    #   0xc631 => { name: "ChromaBlurRadius", format: : },
-    #   0xc632 => { name: "AntiAliasStrength", format: : },
-    #   0xc633 => { name: "ShadowScale", format: : },
-    #   0xc634 => { name: "SR2Private", format: : },
-    #   0xc635 => { name: "MakerNoteSafety", format: : },
-    #   0xc640 => { name: "RawImageSegmentation", format: : },
-    #   0xc65a => { name: "CalibrationIlluminant1", format: : },
-    #   0xc65b => { name: "CalibrationIlluminant2", format: : },
-    #   0xc65c => { name: "BestQualityScale", format: : },
-    #   0xc65d => { name: "RawDataUniqueID", format: : },
-    #   0xc660 => { name: "AliasLayerMetadata", format: : },
-    #   0xc68b => { name: "OriginalRawFileName", format: : },
-    #   0xc68c => { name: "OriginalRawFileData", format: : },
-    #   0xc68d => { name: "ActiveArea", format: : },
-    #   0xc68e => { name: "MaskedAreas", format: : },
-    #   0xc68f => { name: "AsShotICCProfile", format: : },
-    #   0xc690 => { name: "AsShotPreProfileMatrix", format: : },
-    #   0xc691 => { name: "CurrentICCProfile", format: : },
-    #   0xc692 => { name: "CurrentPreProfileMatrix", format: : },
-    #   0xc6bf => { name: "ColorimetricReference", format: : },
-    #   0xc6d2 => { name: "PanasonicTitle", format: : },
-    #   0xc6d3 => { name: "PanasonicTitle2", format: : },
-    #   0xc6f3 => { name: "CameraCalibrationSig", format: : },
-    #   0xc6f4 => { name: "ProfileCalibrationSig", format: : },
-    #   0xc6f5 => { name: "ProfileIFD", format: : },
-    #   0xc6f6 => { name: "AsShotProfileName", format: : },
-    #   0xc6f7 => { name: "NoiseReductionApplied", format: : },
-    #   0xc6f8 => { name: "ProfileName", format: : },
-    #   0xc6f9 => { name: "ProfileHueSatMapDims", format: : },
-    #   0xc6fa => { name: "ProfileHueSatMapData1", format: : },
-    #   0xc6fb => { name: "ProfileHueSatMapData2", format: : },
-    #   0xc6fc => { name: "ProfileToneCurve", format: : },
-    #   0xc6fd => { name: "ProfileEmbedPolicy", format: : },
-    #   0xc6fe => { name: "ProfileCopyright", format: : },
-    #   0xc714 => { name: "ForwardMatrix1", format: : },
-    #   0xc715 => { name: "ForwardMatrix2", format: : },
-    #   0xc716 => { name: "PreviewApplicationName", format: : },
-    #   0xc717 => { name: "PreviewApplicationVersion", format: : },
-    #   0xc718 => { name: "PreviewSettingsName", format: : },
-    #   0xc719 => { name: "PreviewSettingsDigest", format: : },
-    #   0xc71a => { name: "PreviewColorSpace", format: : },
-    #   0xc71b => { name: "PreviewDateTime", format: : },
-    #   0xc71c => { name: "RawImageDigest", format: : },
-    #   0xc71d => { name: "OriginalRawFileDigest", format: : },
-    #   0xc71e => { name: "SubTileBlockSize", format: : },
-    #   0xc71f => { name: "RowInterleaveFactor", format: : },
-    #   0xc725 => { name: "ProfileLookTableDims", format: : },
-    #   0xc726 => { name: "ProfileLookTableData", format: : },
-    #   0xc740 => { name: "OpcodeList1", format: : },
-    #   0xc741 => { name: "OpcodeList2", format: : },
-    #   0xc74e => { name: "OpcodeList3", format: : },
-    #   0xc761 => { name: "NoiseProfile", format: : },
-    #   0xc763 => { name: "TimeCodes", format: : },
-    #   0xc764 => { name: "FrameRate", format: : },
-    #   0xc772 => { name: "TStop", format: : },
-    #   0xc789 => { name: "ReelName", format: : },
-    #   0xc791 => { name: "OriginalDefaultFinalSize", format: : },
-    #   0xc792 => { name: "OriginalBestQualitySize", format: : },
-    #   0xc793 => { name: "OriginalDefaultCropSize", format: : },
-    #   0xc7a1 => { name: "CameraLabel", format: : },
-    #   0xc7a3 => { name: "ProfileHueSatMapEncoding", format: : },
-    #   0xc7a4 => { name: "ProfileLookTableEncoding", format: : },
-    #   0xc7a5 => { name: "BaselineExposureOffset", format: : },
-    #   0xc7a6 => { name: "DefaultBlackRender", format: : },
-    #   0xc7a7 => { name: "NewRawImageDigest", format: : },
-    #   0xc7a8 => { name: "RawToPreviewGain", format: : },
-    #   0xc7b5 => { name: "DefaultUserCrop", format: : },
-    #   0xea1c => { name: "Padding", format: : },
-    #   0xea1d => { name: "OffsetSchema", format: : },
-    #   0xfde8 => { name: "OwnerName", format: : },
-    #   0xfde9 => { name: "SerialNumber", format: : },
-    #   0xfdea => { name: "Lens", format: : },
-    #   0xfe00 => { name: "KDC_IFD", format: : },
-    #   0xfe4c => { name: "RawFile", format: : },
-    #   0xfe4d => { name: "Converter", format: : },
-    #   0xfe4e => { name: "WhiteBalance", format: : },
-    #   0xfe51 => { name: "Exposure", format: : },
-    #   0xfe52 => { name: "Shadows", format: : },
-    #   0xfe53 => { name: "Brightness", format: : },
-    #   0xfe54 => { name: "Contrast", format: : },
-    #   0xfe55 => { name: "Saturation", format: : },
-    #   0xfe56 => { name: "Sharpness", format: : },
-    #   0xfe57 => { name: "Smoothness", format: : },
-    #   0xfe58 => { name: "MoireFilter", format: : }
-    # }
+    }
 
 
 

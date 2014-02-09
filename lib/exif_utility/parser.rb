@@ -3,6 +3,8 @@ module ExifUtility
 
 
     def initialize(filename, data)
+      puts "PARSING"
+
       @data = data
 
       file = File.open(filename, 'rb')
