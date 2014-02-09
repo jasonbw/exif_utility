@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Used to interface with http://en.wikipedia.org/wiki/Exchangeable_image_file_format"
   s.authors = ["Jason Wang"]
   s.email = ''
-  s.files = ["lib/exif_utility.rb", "lib/exif_utility/reader.rb"]
+  s.files = ["lib/exif_utility.rb", "lib/exif_utility/data.rb", "lib/exif_utility/parser.rb", "lib/exif_utility/interpreter.rb"]
   s.homepage = ''
   s.license = 'MIT'
 

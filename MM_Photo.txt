@@ -78,7 +78,6 @@ ffe1 # APP1
 
 
 
-# tenth entry
 8769 # ExifOffset
 0004 # U Long
 00000001 # 1 component
@@ -91,10 +90,9 @@ ffe1 # APP1
 # offset to next IFD
 0000024a # next IFD starts at 0x024A
 
-
+# OFFSET 0x0086
 
 ### i think there's \x00 between each entry as like a 'null' seperator
-# OFFSET 0x0086
 # Apple\x00
 4170706c6500 # Make, null terminated
 
@@ -118,7 +116,7 @@ ffe1 # APP1
 
 
 # OFFSET 0x00C4
-# Exif SubIFD, contains digicam's information
+# Exif SubIDF, contains digicam's information
 0018 #No. of Directory entries
 
 # OFFSET 0x00C6

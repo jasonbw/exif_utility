@@ -1,8 +1,8 @@
 # Ignore .gem files
 /*.gem
 
-# Ignore mac files
-/.DS_Store
+# Ignore all mac files
+**/.DS_Store
 
 # Ignore .jpgs for now
 /*.jpg

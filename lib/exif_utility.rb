@@ -1,18 +1,20 @@
-
 module ExifUtility
-  # The main ExifUtility driver
   class ExifUtility
 
+    # Exif data is stored in the Data class
+    attr_accessor :data
 
-    # test function
     def initialize(filename)
-      @reader = Reader.new(filename)
+      @data = Data.new
+      Parser.new(filename, data)
     end
 
-    def date_time
-      return @reader.date_time
-    end
   end
+
 end
 
-require 'exif_utility/reader'
+require 'exif_utility/data'
+# require 'exif_utility/reader'
+require 'exif_utility/parser'
+require 'exif_utility/interpreter'
+require 'date'
