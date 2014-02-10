@@ -1,4 +1,4 @@
-# Exif Utility
+= Exif Utility
 
 Exif Utility is a ruby module for reading Exif information from JPEGs.
 
@@ -6,5 +6,5 @@ Exif Utility is a ruby module for reading Exif information from JPEGs.
 It is currently in progress and only supports reading of certain Exif tags. See `./lib/exif_utility/data.rb` for all of the tags that have been implemented so far.
 
 
-#### How to use Exif Utility
+=== How to use Exif Utility
     ExifUtility::ExifUtility.new('image.jpg').data.date_time
