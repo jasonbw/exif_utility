@@ -3,14 +3,10 @@ module ExifUtility
   class Data
 
     # TODO: Save data read in for each tag
-    # TODO: attr_accessor for all tags
 
     attr_reader :exif_offset
 
-    attr_reader :date_time
-
-    # you can do multiple per line
-    # attr_reader :name, :age
+    attr_reader :date_time # delete this
 
 
     def initialize
@@ -37,861 +33,861 @@ module ExifUtility
       when "0002"
         @interop_version = data
       when "000B"
-        @Processing_Software = data
+        @processing_software = data
       when "00FE"
-        @Subfile_Type = data
+        @subfile_type = data
       when "00FF"
-        @Old_Subfile_Type = data
+        @old_subfile_type = data
       when "0100"
-        @Image_Width = data
+        @image_width = data
       when "0101"
-        @Image_Height = data
+        @image_height = data
       when "0102"
-        @Bits_Per_Sample = data
+        @bits_per_sample = data
       when "0103"
-        @Compression = data
+        @compression = data
       when "0106"
-        @Photometric_Interpretation = data
+        @photometric_interpretation = data
       when "0107"
-        @Thresholding = data
+        @thresholding = data
       when "0108"
-        @Cell_Width = data
+        @cell_width = data
       when "0109"
-        @Cell_Length = data
+        @cell_length = data
       when "010A"
-        @Fill_Order = data
+        @fill_order = data
       when "010D"
-        @Document_Name = data
+        @document_name = data
       when "010E"
-        @Image_Description = data
+        @image_description = data
       when "010F"
-        @Make = data
+        @make = data
       when "0110"
-        @Model = data
+        @model = data
       when "0111"
-        @Strip_Offsets = data
+        @strip_offsets = data
       when "0112"
-        @Orientation = data
+        @orientation = data
       when "0115"
-        @Samples_Per_Pixel = data
+        @samples_per_pixel = data
       when "0116"
-        @Rows_Per_Strip = data
+        @rows_per_strip = data
       when "0117"
-        @Strip_Byte_Counts = data
+        @strip_byte_counts = data
       when "0118"
-        @Min_Sample_Value = data
+        @min_sample_value = data
       when "0119"
-        @Max_Sample_Value = data
+        @max_sample_value = data
       when "011A"
-        @X_Resolution = data
+        @x_resolution = data
       when "011B"
-        @Y_Resolution = data
+        @y_resolution = data
       when "011C"
-        @Planar_Configuration = data
+        @planar_configuration = data
       when "011D"
-        @Page_Name = data
+        @page_name = data
       when "011E"
-        @X_Position = data
+        @x_position = data
       when "011F"
-        @Y_Position = data
+        @y_position = data
       when "0120"
-        @Free_Offsets = data
+        @free_offsets = data
       when "0121"
-        @Free_Byte_Counts = data
+        @free_byte_counts = data
       when "0122"
-        @Gray_Response_Unit = data
+        @gray_response_unit = data
       when "0123"
-        @Gray_Response_Curve = data
+        @gray_response_curve = data
       when "0124"
-        @T4_Options = data
+        @t4_options = data
       when "0125"
-        @T6_Options = data
+        @t6_options = data
       when "0128"
-        @Resolution_Unit = data
+        @resolution_unit = data
       when "0129"
-        @Page_Number = data
+        @page_number = data
       when "012C"
-        @Color_Response_Unit = data
+        @color_response_unit = data
       when "012D"
-        @Transfer_Function = data
+        @transfer_function = data
       when "0131"
-        @Software = data
+        @software = data
       when "0132"
-        @Modify_Date = data
+        @modify_date = data
       when "013B"
-        @Artist = data
+        @artist = data
       when "013C"
-        @Host_Computer = data
+        @host_computer = data
       when "013D"
-        @Predictor = data
+        @predictor = data
       when "013E"
-        @White_Point = data
+        @white_point = data
       when "013F"
-        @Primary_Chromaticities = data
+        @primary_chromaticities = data
       when "0140"
-        @Color_Map = data
+        @color_map = data
       when "0141"
-        @Halftone_Hints = data
+        @halftone_hints = data
       when "0142"
-        @Tile_Width = data
+        @tile_width = data
       when "0143"
-        @Tile_Length = data
+        @tile_length = data
       when "0144"
-        @Tile_Offsets = data
+        @tile_offsets = data
       when "0145"
-        @Tile_Byte_Counts = data
+        @tile_byte_counts = data
       when "0146"
-        @Bad_Fax_Lines = data
+        @bad_fax_lines = data
       when "0147"
-        @Clean_Fax_Data = data
+        @clean_fax_data = data
       when "0148"
-        @Consecutive_Bad_Fax_Lines = data
+        @consecutive_bad_fax_lines = data
       when "014A"
-        @Sub_IFD = data
+        @sub_ifd = data
       when "014C"
-        @Ink_Set = data
+        @ink_set = data
       when "014D"
-        @Ink_Names = data
+        @ink_names = data
       when "014E"
-        @Number_of_Inks = data
+        @number_of_inks = data
       when "0150"
-        @Dot_Range = data
+        @dot_range = data
       when "0151"
-        @Target_Printer = data
+        @target_printer = data
       when "0152"
-        @Extra_Samples = data
+        @extra_samples = data
       when "0153"
-        @Sample_Format = data
+        @sample_format = data
       when "0154"
-        @S_Min_Sample_Value = data
+        @s_min_sample_value = data
       when "0155"
-        @S_Max_Sample_Value = data
+        @s_max_sample_value = data
       when "0156"
-        @Transfer_Range = data
+        @transfer_range = data
       when "0157"
-        @Clip_Path = data
+        @clip_path = data
       when "0158"
-        @X_Clip_Path_Units = data
+        @x_clip_path_units = data
       when "0159"
-        @Y_Clip_Path_Units = data
+        @y_clip_path_units = data
       when "015A"
-        @Indexed = data
+        @indexed = data
       when "015B"
-        @JPEG_Tables = data
+        @jpeg_tables = data
       when "015F"
-        @OPI_Proxy = data
+        @opi_proxy = data
       when "0190"
-        @Global_Parameters_IFD = data
+        @global_parameters_ifd = data
       when "0191"
-        @Profile_Type = data
+        @profile_type = data
       when "0192"
-        @Fax_Profile = data
+        @fax_profile = data
       when "0193"
-        @Coding_Methods = data
+        @coding_methods = data
       when "0194"
-        @Version_Year = data
+        @version_year = data
       when "0195"
-        @Mode_Number = data
+        @mode_number = data
       when "01B1"
-        @Decode = data
+        @decode = data
       when "01B2"
-        @Default_Image_Color = data
+        @default_image_color = data
       when "01B3"
-        @T82_Options = data
+        @t82_options = data
       when "01B5"
-        @JPEG_Tables = data
+        @jpeg_tables = data
       when "0200"
-        @JPEG_Proc = data
+        @jpeg_proc = data
       when "0201"
-        @Thumbnail_Offset = data
+        @thumbnail_offset = data
       when "0202"
-        @Thumbnail_Length = data
+        @thumbnail_length = data
       when "0203"
-        @JPEG_Restart_Interval = data
+        @jpeg_restart_interval = data
       when "0205"
-        @JPEG_Lossless_Predictors = data
+        @jpeg_lossless_predictors = data
       when "0206"
-        @JPEG_Point_Transforms = data
+        @jpeg_point_transforms = data
       when "0207"
-        @JPEG_Q_Tables = data
+        @jpeg_q_tables = data
       when "0208"
-        @JPEG_DC_Tables = data
+        @jpeg_dc_tables = data
       when "0209"
-        @JPEG_AC_Tables = data
+        @jpeg_ac_tables = data
       when "0211"
-        @Y_Cb_Cr_Coefficients = data
+        @y_cb_cr_coefficients = data
       when "0212"
-        @Y_Cb_Cr_SubSampling = data
+        @y_cb_cr_subsampling = data
       when "0213"
-        @Y_Cb_Cr_Positioning = data
+        @y_cb_cr_positioning = data
       when "0214"
-        @Reference_Black_White = data
+        @reference_black_white = data
       when "022F"
-        @Strip_Row_Counts = data
+        @strip_row_counts = data
       when "02BC"
-        @Application_Notes = data
+        @application_notes = data
       when "03E7"
-        @USPT_OMiscellaneous = data
+        @uspt_omiscellaneous = data
       when "1000"
-        @Related_Image_File_Format = data
+        @related_image_file_format = data
       when "1001"
-        @Related_Image_Width = data
+        @related_image_width = data
       when "1002"
-        @Related_Image_Height = data
+        @related_image_height = data
       when "4746"
-        @Rating = data
+        @rating = data
       when "4747"
-        @XP_DIP_XML = data
+        @xp_dip_xml = data
       when "4748"
-        @Stitch_Info = data
+        @stitch_info = data
       when "4749"
-        @Rating_Percent = data
+        @rating_percent = data
       when "800D"
-        @Image_ID = data
+        @image_id = data
       when "80A3"
-        @Wang_Tag_1 = data
+        @wang_tag_1 = data
       when "80A4"
-        @Wang_Annotation = data
+        @wang_annotation = data
       when "80A5"
-        @Wang_Tag_3 = data
+        @wang_tag_3 = data
       when "80A6"
-        @Wang_Tag_4 = data
+        @wang_tag_4 = data
       when "80E3"
-        @Matteing = data
+        @matteing = data
       when "80E4"
-        @Data_Type = data
+        @data_type = data
       when "80E5"
-        @Image_Depth = data
+        @image_depth = data
       when "80E6"
-        @Tile_Depth = data
+        @tile_depth = data
       when "827D"
-        @Mode_l2 = data
+        @mode_l2 = data
       when "828D"
-        @CFA_Repeat_Pattern_Dim = data
+        @cfa_repeat_pattern_dim = data
       when "828E"
-        @CFA_Pattern_2 = data
+        @cfa_pattern_2 = data
       when "828F"
-        @Battery_Level = data
+        @battery_level = data
       when "8290"
-        @Kodak_IFD = data
+        @kodak_ifd = data
       when "8298"
-        @Copyright = data
+        @copyright = data
       when "829A"
-        @Exposure_Time = data
+        @exposure_time = data
       when "829D"
-        @F_Number = data
+        @f_number = data
       when "82A5"
-        @MD_File_Tag = data
+        @md_file_tag = data
       when "82A6"
-        @MD_Scale_Pixel = data
+        @md_scale_pixel = data
       when "82A7"
-        @MD_Color_Table = data
+        @md_color_table = data
       when "82A8"
-        @MD_Lab_Name = data
+        @md_lab_name = data
       when "82A9"
-        @MD_Sample_Info = data
+        @md_sample_info = data
       when "82AA"
-        @MD_Prep_Date = data
+        @md_prep_date = data
       when "82AB"
-        @MD_Prep_Time = data
+        @md_prep_time = data
       when "82AC"
-        @MDFileUnits = data
+        @mdfileunits = data
       when "830E"
-        @PixelScale = data
+        @pixel_scale = data
       when "8335"
-        @AdventScale = data
+        @advent_scale = data
       when "8336"
-        @AdventRevision = data
+        @advent_revision = data
       when "835C"
-        @UIC1Tag = data
+        @uic_1_tag = data
       when "835D"
-        @UIC2Tag = data
+        @uic_2_tag = data
       when "835E"
-        @UIC3Tag = data
+        @uic_3_tag = data
       when "835F"
-        @UIC4Tag = data
+        @uic_4_tag = data
       when "83BB"
-        @IPTC-NAA = data
+        @iptc_naa = data
       when "847E"
-        @IntergraphPacketData = data
+        @intergraph_packet_data = data
       when "847F"
-        @IntergraphFlagRegisters = data
+        @intergraph_flag_registers = data
       when "8480"
-        @IntergraphMatrix = data
+        @intergraph_matrix = data
       when "8481"
-        @INGRReserved = data
+        @ingr_reserved = data
       when "8482"
-        @ModelTiePoint = data
+        @model_tie_point = data
       when "84E0"
-        @Site = data
+        @site = data
       when "84E1"
-        @ColorSequence = data
+        @color_sequence = data
       when "84E2"
-        @IT8Header = data
+        @it8_header = data
       when "84E3"
-        @RasterPadding = data
+        @raster_padding = data
       when "84E4"
-        @BitsPerRunLength = data
+        @bits_per_run_length = data
       when "84E5"
-        @BitsPerExtendedRunLength = data
+        @bits_per_extended_run_length = data
       when "84E6"
-        @ColorTable = data
+        @color_table = data
       when "84E7"
-        @ImageColorIndicator = data
+        @image_color_indicator = data
       when "84E8"
-        @BackgroundColorIndicator = data
+        @background_color_indicator = data
       when "84E9"
-        @ImageColorValue = data
+        @image_color_value = data
       when "84EA"
-        @BackgroundColorValue = data
+        @background_color_value = data
       when "84EB"
-        @PixelIntensityRange = data
+        @pixel_intensity_range = data
       when "84EC"
-        @TransparencyIndicator = data
+        @transparency_indicator = data
       when "84ED"
-        @ColorCharacterization = data
+        @color_characterization = data
       when "84EE"
-        @HCUsage = data
+        @hc_usage = data
       when "84EF"
-        @TrapIndicator = data
+        @trap_indicator = data
       when "84F0"
-        @CMYKEquivalent = data
+        @cmyk_equivalent = data
       when "8546"
-        @SEMInfo = data
+        @sem_info = data
       when "8568"
-        @AFCP_IPTC = data
+        @afcp_iptc = data
       when "85B8"
-        @PixelMagicJBIGOptions = data
+        @pixel_magic_jbig_options = data
       when "85D8"
-        @ModelTransform = data
+        @model_transform = data
       when "8602"
-        @WB_GRGBLevels = data
+        @wb_grgb_levels = data
       when "8606"
-        @LeafData = data
+        @leaf_data = data
       when "8649"
-        @PhotoshopSettings = data
+        @photoshop_settings = data
       when "8769"
         @exif_offset = data
       when "8773"
-        @ICC_Profile = data
+        @icc_profile = data
       when "877F"
-        @TIFF_FXExtensions = data
+        @tiff_fxextensions = data
       when "8780"
-        @MultiProfiles = data
+        @multi_profiles = data
       when "8781"
-        @SharedData = data
+        @shared_data = data
       when "8782"
-        @T88Options = data
+        @t88_options = data
       when "87AC"
-        @ImageLayer = data
+        @image_layer = data
       when "87AF"
-        @GeoTiffDirectory = data
+        @geo_tiff_directory = data
       when "87B0"
-        @GeoTiffDoubleParams = data
+        @geo_tiff_double_params = data
       when "87B1"
-        @GeoTiffAsciiParams = data
+        @geo_tiff_ascii_params = data
       when "8822"
-        @ExposureProgram = data
+        @exposure_program = data
       when "8824"
-        @SpectralSensitivity = data
+        @spectral_sensitivity = data
       when "8825"
-        @GPSInfo = data
+        @gps_info = data
       when "8827"
-        @ISO = data
+        @iso = data
       when "8828"
-        @Opto-ElectricConvFactor = data
+        @opto_electric_conv_factor = data
       when "8829"
-        @Interlace = data
+        @interlace = data
       when "882A"
-        @TimeZoneOffset = data
+        @time_zone_offset = data
       when "882B"
-        @SelfTimerMode = data
+        @self_timer_mode = data
       when "8830"
-        @SensitivityType = data
+        @sensitivity_type = data
       when "8831"
-        @StandardOutputSensitivity = data
+        @standard_output_sensitivity = data
       when "8832"
-        @RecommendedExposureIndex = data
+        @recommended_exposure_index = data
       when "8833"
-        @ISOSpeed = data
+        @iso_speed = data
       when "8834"
-        @ISOSpeedLatitudeyyy = data
+        @iso_speed_latitude_yyy = data
       when "8835"
-        @ISOSpeedLatitudezzz = data
+        @iso_speed_latitude_zzz = data
       when "885C"
-        @FaxRecvParams = data
+        @fax_recv_params = data
       when "885D"
-        @FaxSubAddress = data
+        @fax_sub_address = data
       when "885E"
-        @FaxRecvTime = data
+        @fax_recv_time = data
       when "888A"
-        @LeafSubIFD = data
+        @leaf_subifd = data
       when "9000"
-        @ExifVersion = data
+        @exif_version = data
       when "9003"
-        @DateTimeOriginal = data
+        @date_time_original = data
       when "9004"
-        @CreateDate = data
+        @create_date = data
       when "9101"
-        @ComponentsConfiguration = data
+        @components_configuration = data
       when "9102"
-        @CompressedBitsPerPixel = data
+        @compressed_bits_per_pixel = data
       when "9201"
-        @ShutterSpeedValue = data
+        @shutter_speed_value = data
       when "9202"
-        @ApertureValue = data
+        @aperture_value = data
       when "9203"
-        @BrightnessValue = data
+        @brightness_value = data
       when "9204"
-        @ExposureCompensation = data
+        @exposure_compensation = data
       when "9205"
-        @MaxApertureValue = data
+        @max_aperture_value = data
       when "9206"
-        @SubjectDistance = data
+        @subject_distance = data
       when "9207"
-        @MeteringMode = data
+        @metering_mode = data
       when "9208"
-        @LightSource = data
+        @light_source = data
       when "9209"
-        @Flash = data
+        @flash = data
       when "920A"
-        @FocalLength = data
+        @focal_length = data
       when "920B"
-        @FlashEnergy = data
+        @flash_energy = data
       when "920C"
-        @SpatialFrequencyResponse = data
+        @spatial_frequencyresponse = data
       when "920D"
-        @Noise = data
+        @noise = data
       when "920E"
-        @FocalPlaneXResolution = data
+        @focal_plane_x_resolution = data
       when "920F"
-        @FocalPlaneYResolution = data
+        @focal_plane_y_resolution = data
       when "9210"
-        @FocalPlaneResolutionUnit = data
+        @focal_plane_resolution_unit = data
       when "9211"
-        @ImageNumber = data
+        @image_number = data
       when "9212"
-        @SecurityClassification = data
+        @security_classification = data
       when "9213"
-        @ImageHistory = data
+        @image_history = data
       when "9214"
-        @SubjectArea = data
+        @subject_area = data
       when "9215"
-        @ExposureIndex = data
+        @exposure_index = data
       when "9216"
-        @TIFF-EPStandardID = data
+        @tiff_ep_standard_id = data
       when "9217"
-        @SensingMethod = data
+        @sensing_method = data
       when "923A"
-        @CIP3DataFile = data
+        @cip3_data_file = data
       when "923B"
-        @CIP3Sheet = data
+        @cip3_sheet = data
       when "923C"
-        @CIP3Side = data
+        @cip3_side = data
       when "923F"
-        @StoNits = data
+        @sto_nits = data
       when "927C"
-        @MakerNoteVENDOR = data # VENDOR can be Apple, Nikon, Canon, etc
+        @maker_note_vendor = data # VENDOR can be Apple, Nikon, Canon, etc
       when "9286"
-        @UserComment = data
+        @user_comment = data
       when "9290"
-        @SubSecTime = data
+        @sub_sec_time = data
       when "9291"
-        @SubSecTimeOriginal = data
+        @sub_sec_time_original = data
       when "9292"
-        @SubSecTimeDigitized = data
+        @sub_sec_time_digitized = data
       when "932F"
-        @MSDocumentText = data
+        @ms_document_text = data
       when "9330"
-        @MSPropertySetStorage = data
+        @ms_property_set_storage = data
       when "9331"
-        @MSDocumentTextPosition = data
+        @ms_document_text_position = data
       when "935C"
-        @ImageSourceData = data
+        @image_source_data = data
       when "9C9B"
-        @XPTitle = data
+        @xp_title = data
       when "9C9C"
-        @XPComment = data
+        @xp_comment = data
       when "9C9D"
-        @XPAuthor = data
+        @xp_author = data
       when "9C9E"
-        @XPKeywords = data
+        @xp_keywords = data
       when "9C9F"
-        @XPSubject = data
+        @xp_subject = data
       when "A000"
-        @FlashpixVersion = data
+        @flashpix_version = data
       when "A001"
-        @ColorSpace = data
+        @color_space = data
       when "A002"
-        @ExifImageWidth = data
+        @exif_image_width = data
       when "A003"
-        @ExifImageHeight = data
+        @exif_image_height = data
       when "A004"
-        @RelatedSoundFile = data
+        @related_sound_file = data
       when "A005"
-        @InteropOffset = data
+        @interop_offset = data
       when "A20B"
-        @FlashEnergy = data
+        @flash_energy = data
       when "A20C"
-        @SpatialFrequencyResponse = data
+        @spatial_frequency_response = data
       when "A20D"
-        @Noise = data
+        @noise = data
       when "A20E"
-        @FocalPlaneXResolution = data
+        @focal_plane_x_resolution = data
       when "A20F"
-        @FocalPlaneYResolution = data
+        @focal_plane_y_resolution = data
       when "A210"
-        @FocalPlaneResolutionUnit = data
+        @focal_plane_resolution_unit = data
       when "A211"
-        @ImageNumber = data
+        @image_number = data
       when "A212"
-        @SecurityClassification = data
+        @security_classification = data
       when "A213"
-        @ImageHistory = data
+        @image_history = data
       when "A214"
-        @SubjectLocation = data
+        @subject_location = data
       when "A215"
-        @ExposureIndex = data
+        @exposure_index = data
       when "A216"
-        @TIFF-EPStandardID = data
+        @tiff_ep_standard_id = data
       when "A217"
-        @SensingMethod = data
+        @sensing_method = data
       when "A300"
-        @FileSource = data
+        @file_source = data
       when "A301"
-        @SceneType = data
+        @scene_type = data
       when "A302"
-        @CFAPattern = data
+        @cfa_pattern = data
       when "A401"
-        @CustomRendered = data
+        @custom_rendered = data
       when "A402"
-        @ExposureMode = data
+        @exposure_mode = data
       when "A403"
-        @WhiteBalance = data
+        @white_balance = data
       when "A404"
-        @DigitalZoomRatio = data
+        @digital_zoom_ratio = data
       when "A405"
-        @FocalLengthIn35mmFormat = data
+        @focal_length_in_35mm_format = data
       when "A406"
-        @SceneCaptureType = data
+        @scene_capture_type = data
       when "A407"
-        @GainControl = data
+        @gain_control = data
       when "A408"
-        @Contrast = data
+        @contrast = data
       when "A409"
-        @Saturation = data
+        @saturation = data
       when "A40A"
-        @Sharpness = data
+        @sharpness = data
       when "A40B"
-        @DeviceSettingDescription = data
+        @device_setting_description = data
       when "A40C"
-        @SubjectDistanceRange = data
+        @subject_distance_range = data
       when "A420"
-        @ImageUniqueID = data
+        @image_unique_id = data
       when "A430"
-        @OwnerName = data
+        @owner_name = data
       when "A431"
-        @SerialNumber = data
+        @serial_number = data
       when "A432"
-        @LensInfo = data
+        @lens_info = data
       when "A433"
-        @LensMake = data
+        @lens_make = data
       when "A434"
-        @LensModel = data
+        @lens_model = data
       when "A435"
-        @LensSerialNumber = data
+        @lens_serial_number = data
       when "A480"
-        @GDALMetadata = data
+        @gdal_metadata = data
       when "A481"
-        @GDALNoData = data
+        @gdal_no_data = data
       when "A500"
-        @Gamma = data
+        @gamma = data
       when "AFC0"
-        @ExpandSoftware = data
+        @expand_software = data
       when "AFC1"
-        @ExpandLens = data
+        @expand_lens = data
       when "AFC2"
-        @ExpandFilm = data
+        @expand_film = data
       when "AFC3"
-        @ExpandFilterLens = data
+        @expand_filter_lens = data
       when "AFC4"
-        @ExpandScanner = data
+        @expand_scanner = data
       when "AFC5"
-        @ExpandFlashLamp = data
+        @expand_flash_lamp = data
       when "BC01"
-        @PixelFormat = data
+        @pixel_format = data
       when "BC02"
-        @Transformation = data
+        @transformation = data
       when "BC03"
-        @Uncompressed = data
+        @uncompressed = data
       when "BC04"
-        @ImageType = data
+        @image_type = data
       when "BC80"
-        @ImageWidth = data
+        @image_width = data
       when "BC81"
-        @ImageHeight = data
+        @image_height = data
       when "BC82"
-        @WidthResolution = data
+        @width_resolution = data
       when "BC83"
-        @HeightResolution = data
+        @height_resolution = data
       when "BCC0"
-        @ImageOffset = data
+        @image_offset = data
       when "BCC1"
-        @ImageByteCount = data
+        @image_byte_count = data
       when "BCC2"
-        @AlphaOffset = data
+        @alpha_offset = data
       when "BCC3"
-        @AlphaByteCount = data
+        @alpha_byte_count = data
       when "BCC4"
-        @ImageDataDiscard = data
+        @image_data_discard = data
       when "BCC5"
-        @AlphaDataDiscard = data
+        @alpha_data_discard = data
       when "C427"
-        @OceScanjobDesc = data
+        @oce_scanjob_desc = data
       when "C428"
-        @OceApplicationSelector = data
+        @oce_application_selector = data
       when "C429"
-        @OceIDNumber = data
+        @oce_id_number = data
       when "C42A"
-        @OceImageLogic = data
+        @oce_image_logic = data
       when "C44F"
-        @Annotations = data
+        @annotations = data
       when "C4A5"
-        @PrintIM = data
+        @print_im = data
       when "C573"
-        @OriginalFileName = data
+        @original_filename = data
       when "C580"
-        @USPTOOriginalContentType = data
+        @uspto_original_content_type = data
       when "C612"
-        @DNGVersion = data
+        @dng_version = data
       when "C613"
-        @DNGBackwardVersion = data
+        @dng_backward_version = data
       when "C614"
-        @UniqueCameraModel = data
+        @unique_camera_model = data
       when "C615"
-        @LocalizedCameraModel = data
+        @localized_camera_model = data
       when "C616"
-        @CFAPlaneColor = data
+        @cfa_plane_color = data
       when "C617"
-        @CFALayout = data
+        @cfa_layout = data
       when "C618"
-        @LinearizationTable = data
+        @linearization_table = data
       when "C619"
-        @BlackLevelRepeatDim = data
+        @black_level_repeat_dim = data
       when "C61A"
-        @BlackLevel = data
+        @black_level = data
       when "C61B"
-        @BlackLevelDeltaH = data
+        @black_level_delta_h = data
       when "C61C"
-        @BlackLevelDeltaV = data
+        @black_level_delta_v = data
       when "C61D"
-        @WhiteLevel = data
+        @white_level = data
       when "C61E"
-        @DefaultScale = data
+        @default_scale = data
       when "C61F"
-        @DefaultCropOrigin = data
+        @default_crop_origin = data
       when "C620"
-        @DefaultCropSize = data
+        @default_crop_size = data
       when "C621"
-        @ColorMatrix1 = data
+        @color_matrix_1 = data
       when "C622"
-        @ColorMatrix2 = data
+        @color_matrix_2 = data
       when "C623"
-        @CameraCalibration1 = data
+        @camera_calibration_1 = data
       when "C624"
-        @CameraCalibration2 = data
+        @camera_calibration_2 = data
       when "C625"
-        @ReductionMatrix1 = data
+        @reduction_matrix_1 = data
       when "C626"
-        @ReductionMatrix2 = data
+        @reduction_matrix_2 = data
       when "C627"
-        @AnalogBalance = data
+        @analog_balance = data
       when "C628"
-        @AsShotNeutral = data
+        @asshot_neutral = data
       when "C629"
-        @AsShotWhiteXY = data
+        @asshot_white_xy = data
       when "C62A"
-        @BaselineExposure = data
+        @baseline_exposure = data
       when "C62B"
-        @BaselineNoise = data
+        @baseline_noise = data
       when "C62C"
-        @BaselineSharpness = data
+        @baseline_sharpness = data
       when "C62D"
-        @BayerGreenSplit = data
+        @bayer_green_split = data
       when "C62E"
-        @LinearResponseLimit = data
+        @linear_response_limit = data
       when "C62F"
-        @CameraSerialNumber = data
+        @camera_serial_number = data
       when "C630"
-        @DNGLensInfo = data
+        @dng_lens_info = data
       when "C631"
-        @ChromaBlurRadius = data
+        @chroma_blur_radius = data
       when "C632"
-        @AntiAliasStrength = data
+        @anti_alias_strength = data
       when "C633"
-        @ShadowScale = data
+        @shadow_scale = data
       when "C634"
-        @SR2Private = data
+        @sr2_private = data
       when "C635"
-        @MakerNoteSafety = data
+        @maker_note_safety = data
       when "C640"
-        @RawImageSegmentation = data
+        @raw_image_segmentation = data
       when "C65A"
-        @CalibrationIlluminant1 = data
+        @calibration_illuminant_1 = data
       when "C65B"
-        @CalibrationIlluminant2 = data
+        @calibration_illuminant_2 = data
       when "C65C"
-        @BestQualityScale = data
+        @best_quality_scale = data
       when "C65D"
-        @RawDataUniqueID = data
+        @raw_data_unique_id = data
       when "C660"
-        @AliasLayerMetadata = data
+        @alias_layer_metadata = data
       when "C68B"
-        @OriginalRawFileName = data
+        @original_raw_file_name = data
       when "C68C"
-        @OriginalRawFileData = data
+        @original_raw_file_data = data
       when "C68D"
-        @ActiveArea = data
+        @active_area = data
       when "C68E"
-        @MaskedAreas = data
+        @masked_areas = data
       when "C68F"
-        @AsShotICCProfile = data
+        @asshot_icc_profile = data
       when "C690"
-        @AsShotPreProfileMatrix = data
+        @asshot_pre_profile_matrix = data
       when "C691"
-        @CurrentICCProfile = data
+        @current_icc_profile = data
       when "C692"
-        @CurrentPreProfileMatrix = data
+        @current_pre_profile_matrix = data
       when "C6BF"
-        @ColorimetricReference = data
+        @colorimetric_reference = data
       when "C6D2"
-        @PanasonicTitle = data
+        @panasonic_title = data
       when "C6D3"
-        @PanasonicTitle2 = data
+        @panasonic_title_2 = data
       when "C6F3"
-        @CameraCalibrationSig = data
+        @camera_calibration_sig = data
       when "C6F4"
-        @ProfileCalibrationSig = data
+        @profile_calibration_sig = data
       when "C6F5"
-        @ProfileIFD = data
+        @profile_ifd = data
       when "C6F6"
-        @AsShotProfileName = data
+        @asshot_profile_name = data
       when "C6F7"
-        @NoiseReductionApplied = data
+        @noise_reduction_applied = data
       when "C6F8"
-        @ProfileName = data
+        @profile_name = data
       when "C6F9"
-        @ProfileHueSatMapDims = data
+        @profile_hue_sat_mapdims = data
       when "C6FA"
-        @ProfileHueSatMapData1 = data
+        @profile_hue_sat_map_data_1 = data
       when "C6FB"
-        @ProfileHueSatMapData2 = data
+        @profile_hue_sat_map_data_2 = data
       when "C6FC"
-        @ProfileToneCurve = data
+        @profile_tone_curve = data
       when "C6FD"
-        @ProfileEmbedPolicy = data
+        @profile_embed_policy = data
       when "C6FE"
-        @ProfileCopyright = data
+        @profile_copyright = data
       when "C714"
-        @ForwardMatrix1 = data
+        @forward_matrix_1 = data
       when "C715"
-        @ForwardMatrix2 = data
+        @forward_matrix_2 = data
       when "C716"
-        @PreviewApplicationName = data
+        @preview_application_name = data
       when "C717"
-        @PreviewApplicationVersion = data
+        @preview_application_version = data
       when "C718"
-        @PreviewSettingsName = data
+        @preview_settings_name = data
       when "C719"
-        @PreviewSettingsDigest = data
+        @preview_settings_digest = data
       when "C71A"
-        @PreviewColorSpace = data
+        @preview_color_space = data
       when "C71B"
-        @PreviewDateTime = data
+        @preview_date_time = data
       when "C71C"
-        @RawImageDigest = data
+        @raw_image_digest = data
       when "C71D"
-        @OriginalRawFileDigest = data
+        @original_raw_file_digest = data
       when "C71E"
-        @SubTileBlockSize = data
+        @sub_tile_block_size = data
       when "C71F"
-        @RowInterleaveFactor = data
+        @row_interleave_factor = data
       when "C725"
-        @ProfileLookTableDims = data
+        @profile_look_table_dims = data
       when "C726"
-        @ProfileLookTableData = data
+        @profile_look_table_data = data
       when "C740"
-        @OpcodeList1 = data
+        @opcode_list_1 = data
       when "C741"
-        @OpcodeList2 = data
+        @opcode_list_2 = data
       when "C74E"
-        @OpcodeList3 = data
+        @opcode_list_3 = data
       when "C761"
-        @NoiseProfile = data
+        @noise_profile = data
       when "C763"
-        @TimeCodes = data
+        @time_codes = data
       when "C764"
-        @FrameRate = data
+        @frame_rate = data
       when "C772"
-        @TStop = data
+        @t_stop = data
       when "C789"
-        @ReelName = data
+        @reel_name = data
       when "C791"
-        @OriginalDefaultFinalSize = data
+        @original_default_final_size = data
       when "C792"
-        @OriginalBestQualitySize = data
+        @original_best_quality_size = data
       when "C793"
-        @OriginalDefaultCropSize = data
+        @original_default_crop_size = data
       when "C7A1"
-        @CameraLabel = data
+        @camera_label = data
       when "C7A3"
-        @ProfileHueSatMapEncoding = data
+        @profile_hue_sat_map_encoding = data
       when "C7A4"
-        @ProfileLookTableEncoding = data
+        @profile_look_table_encoding = data
       when "C7A5"
-        @BaselineExposureOffset = data
+        @baseline_exposure_offset = data
       when "C7A6"
-        @DefaultBlackRender = data
+        @default_black_render = data
       when "C7A7"
-        @NewRawImageDigest = data
+        @new_raw_image_digest = data
       when "C7A8"
-        @RawToPreviewGain = data
+        @raw_to_preview_gain = data
       when "C7B5"
-        @DefaultUserCrop = data
+        @default_user_crop = data
       when "EA1C"
-        @Padding = data
+        @padding = data
       when "EA1D"
-        @OffsetSchema = data
+        @offset_schema = data
       when "FDE8"
-        @OwnerName = data
+        @owner_name = data
       when "FDE9"
-        @SerialNumber = data
+        @serial_number = data
       when "FDEA"
-        @Lens = data
+        @lens = data
       when "FE00"
-        @KDC_IFD = data
+        @kdc_ifd = data
       when "FE4C"
-        @RawFile = data
+        @raw_file = data
       when "FE4D"
-        @Converter = data
+        @converter = data
       when "FE4E"
-        @WhiteBalance = data
+        @white_balance = data
       when "FE51"
-        @Exposure = data
+        @exposure = data
       when "FE52"
-        @Shadows = data
+        @shadows = data
       when "FE53"
-        @Brightness = data
+        @brightness = data
       when "FE54"
-        @Contrast = data
+        @contrast = data
       when "FE55"
-        @Saturation = data
+        @saturation = data
       when "FE56"
-        @Sharpness = data
+        @sharpness = data
       when "FE57"
-        @Smoothness = data
+        @smoothness = data
       when "FE58"
-        @MoireFilter = data
+        @moire_filter = data
       end
     }
 

@@ -1,10 +1,7 @@
 module ExifUtility
   class Parser
 
-
     def initialize(filename, data)
-      puts "PARSING"
-
       @data = data
 
       file = File.open(filename, 'rb')
@@ -162,8 +159,6 @@ module ExifUtility
       @exif_data[start_offset..end_offset]
     end
 
-
-
-
   end
+
 end
