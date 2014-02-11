@@ -78,7 +78,7 @@ module ExifUtility
       offset_to_next_IFD = read(4).to_i(16)
 
       # Then jump to the offset for Exif SubIFD
-      set_offset(@data.exif_subIFD_offset)
+      set_offset(@data.exif_offset)
       # Then parse the Exif SubIFD which contains digicam information
       parse_IFD
 

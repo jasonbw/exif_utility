@@ -889,7 +889,7 @@ module ExifUtility
       when "FE58"
         @moire_filter = data
       end
-    }
+    end
 
 
 
