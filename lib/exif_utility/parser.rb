@@ -3,6 +3,7 @@ module ExifUtility
 
     def initialize(filename, data)
       @data = data
+      @interpreter = Interpreter.new(@data)
 
       file = File.open(filename, 'rb')
 
@@ -107,17 +108,17 @@ module ExifUtility
       number_of_components = read(4).to_i(16)
       data_value = read(4)
 
-      bytes_of_data = Interpreter.size_from_data_format(data_format) * number_of_components
+      bytes_of_data = @interpreter.size_from_data_format(data_format) * number_of_components
       if bytes_of_data > 4
         # interpret the datavalue as an offset
-        result = Interpreter.interpret(tag, read_at_offset(bytes_of_data, data_value.to_i(16))) # in this scenario data_value is the offset to the data
+        result = @interpreter.interpret(tag, read_at_offset(bytes_of_data, data_value.to_i(16))) # in this scenario data_value is the offset to the data
       else
         # interpret the datavalue as the data
-        result = Interpreter.interpret(tag, data_value)
+        result = @interpreter.interpret(tag, data_value)
       end
 
-
-      @data.add_data(tag, result)
+      # Data is saved in the interpreter
+      # @data.add_data(tag, result)
 
     end
 
