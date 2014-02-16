@@ -10,13 +10,24 @@ module ExifUtility
       # Check to make sure it's an image.
       # Every JPEG starts with 0xFFD8 the marker for a JPEG SOI (Start of image)
       unless file.read(2).unpack('H*')[0].upcase == "FFD8"
-        raise 'This file is not a JPEG'
+        raise "#{filename} is not a JPEG"
       end
 
       # Exif data starts with the AAP1 Marker: 0xFFE1
-      unless file.read(2).unpack('H*')[0].upcase == "FFE1"
-        raise 'This file does not have Exif data'
+      # Sometimes there are other markers (0xFFE0) before, read past them until you get to 0xFFE1
+      first = file.read(1).unpack('H*')[0].upcase
+      while true
+        second = file.read(1).unpack('H*')[0].upcase
+
+        if first == "FF" and second == "E1"
+          break
+        end
+        first = second
       end
+
+      # unless file.read(2).unpack('H*')[0].upcase == "FFE1"
+      #   raise "#{filename} does not have Exif data"
+      # end
 
       # The size of the APP1 data area (Exif data area)
       exif_data_size = file.read(2).unpack('H*')[0].upcase.to_i(16) - 2 # note that this size includes the size of descriptor (2 bytes)
@@ -24,7 +35,7 @@ module ExifUtility
       # Read in the Exif Header
       # The Exif Header always starts with 0x457869660000
       unless file.read(6).unpack('H*')[0].upcase == "457869660000"
-        raise 'This file does not have an Exif header'
+        raise "#{filename} does not have an Exif header"
       end
 
       exif_data_size -= 6 # subtract the size of the Exif Header (6 bytes)
