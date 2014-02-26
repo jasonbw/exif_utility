@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'exif_utility'
-  s.version = '0.0.0'
+  s.version = '0.0.1'
   s.date = '2014-02-14'
   s.summary = "A module for reading Exif information from JPEGs"
   s.description = "Exif Utility is a module for reading Exif information from JPEGs"

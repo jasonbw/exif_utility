@@ -15,19 +15,16 @@ module ExifUtility
 
       # Exif data starts with the AAP1 Marker: 0xFFE1
       # Sometimes there are other markers (0xFFE0) before, read past them until you get to 0xFFE1
+      # BUG: if FFE1 doesn't exist it reads through the whole file
       first = file.read(1).unpack('H*')[0].upcase
       while true
         second = file.read(1).unpack('H*')[0].upcase
-
+        puts "first: #{first} | second: #{second}"
         if first == "FF" and second == "E1"
           break
         end
         first = second
       end
-
-      # unless file.read(2).unpack('H*')[0].upcase == "FFE1"
-      #   raise "#{filename} does not have Exif data"
-      # end
 
       # The size of the APP1 data area (Exif data area)
       exif_data_size = file.read(2).unpack('H*')[0].upcase.to_i(16) - 2 # note that this size includes the size of descriptor (2 bytes)
@@ -45,7 +42,6 @@ module ExifUtility
       @exif_data = file.read(exif_data_size).unpack('H*')[0].upcase
       @offset = 0
       @alignment = :motorola
-
 
       # Read in the TIFF Header (8 bytes)
       # The first 2 bytes define the byte align of the TIFF data
@@ -96,9 +92,7 @@ module ExifUtility
 
 
       ## TODO: Parse the IFD linked to by IFD0
-
     end
-
 
 
     def parse_IFD
@@ -109,9 +103,8 @@ module ExifUtility
       @entries.times do
         parse_entry
       end
-
-
     end
+
 
     def parse_entry
       tag = read(2)
@@ -127,21 +120,13 @@ module ExifUtility
         # interpret the datavalue as the data
         result = @interpreter.interpret(tag, data_value)
       end
-
-      # Data is saved in the interpreter
-      # @data.add_data(tag, result)
-
     end
 
-
-
-
-    # Section for methods that work with reading in bytes
-    # Reads in data from @exif_data
 
     def set_offset(new_offset)
       @offset = new_offset
     end
+
 
     # have to chck if the data should be read as little or big endian
     def read(num_bytes)
@@ -161,6 +146,7 @@ module ExifUtility
       @offset += num_bytes
       bytes
     end
+
 
     # always read big endian
     def read_at_offset(num_bytes, offset)

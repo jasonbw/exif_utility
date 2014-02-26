@@ -3,9 +3,3 @@
 
 # Ignore all mac files
 **/.DS_Store
-
-# Ignore .jpgs for now
-/*.jpg
-# Ignore .movs for now
-/*.mpg
-/*.mov
